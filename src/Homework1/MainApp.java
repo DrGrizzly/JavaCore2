@@ -1,6 +1,7 @@
 package Homework1;
 
 public class MainApp {
+
     public static void main(String[] args) {
         //Создадим массив объектов
         Object[] arrLifeObj = new Object[]{new Cat("Васька"), new Human("Петька"), new Robot("БоБо"), new Cat("Феликс"), new Human("Изя"), new Robot("Микс")};
