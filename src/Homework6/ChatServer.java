@@ -60,11 +60,7 @@ public class ChatServer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        try {
-            if (serverSocket != null) serverSocket.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        System.exit(0);
     }
 
     public void getMessage() {
@@ -92,6 +88,10 @@ public class ChatServer {
         try {
             if (socket != null && socket.isConnected()) {
                 out.writeUTF(msg);
+                if ("/end".equalsIgnoreCase(msg)) {
+                    System.out.println("Принята команда завершения Сервера");
+                    stopServer();
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

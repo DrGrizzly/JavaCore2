@@ -63,6 +63,10 @@ public class ChatClient {
         ChatApi.Message msgToSend = new ChatApi.Message();
         msgToSend.setMessage(msg);
         out.writeUTF(new Gson().toJson(msgToSend));
+        if ("/end".equalsIgnoreCase(msg)) {
+            System.out.println("Принята команда завершения Клиента");
+            closeConnection();
+        }
     }
 
     public void closeConnection() {
@@ -84,6 +88,7 @@ public class ChatClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.exit(0);
     }
 
 }
